@@ -1,36 +1,28 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DocFlow - Modern collaborative document editor
 
-## Getting Started
+A modern, collaborative document editor designed to enhance productivity and streamline workflows for individuals and teams. It offers real-time co-editing capabilities, integrated commenting, and a notification system to facilitate seamless collaboration. Users can create professional-looking documents using a diverse template library and rich text formatting options. The application also supports versatile export options, personal and organization accounts, and an intuitive invitation system for team management.
 
-First, run the development server:
+## Tech stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Built with a modern tech stack including Next.js 15, React 19, Convex, Liveblocks, TiTap, ShadCN, Tailwind, and Clerk, this application provides a powerful and user-friendly document editing experience.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**Collaboration and Real-Time Editing:**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Simultaneous Editing:** Multiple users can collaborate on the same document in real-time, enhancing productivity and streamlining workflows.
+- **Integrated Commenting System:** A robust commenting feature allows users to provide feedback, tag colleagues, and discuss specific sections of the document within the application.
+- **Real-Time Notifications:** Users receive instant notifications for mentions and comments, ensuring timely communication and efficient collaboration.
 
-## Learn More
+**Document Creation and Formatting:**
 
-To learn more about Next.js, take a look at the following resources:
+- **Template Library:** A variety of pre-designed templates for common document types (e.g., project proposals, business letters, resumes) accelerates document creation.
+- **Rich Text Formatting:** Comprehensive text formatting options, including heading styles, lists (bulleted, numbered, and checklists), hyperlinks, tables, font customization, and image uploads, enable users to create professional-looking documents.
+- **Customizable Margins:** Users can adjust document margins to meet specific formatting requirements.
+- **Versatile Export Options:** Documents can be exported in various formats, including HTML, PDF, plain text, and JSON, providing flexibility for different use cases.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**User and Organization Management:**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Dual Account Support:** The application supports both personal and organization accounts, catering to individual and team needs.
+- **Organization Invitation System:** Streamlined invitation management allows organizations to easily add and manage team members.
+- **Role-Based Access Control:** Assign different roles to organization members to control access and permissions.
