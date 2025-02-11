@@ -3,7 +3,13 @@
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import TaskItem from "@tiptap/extension-task-item";
+import FontFamily from "@tiptap/extension-font-family";
 import TaskList from "@tiptap/extension-task-list";
+import Underline from "@tiptap/extension-underline";
+import Strike from "@tiptap/extension-strike";
+import TextStyle from "@tiptap/extension-text-style";
+import Subscript from "@tiptap/extension-subscript";
+import Superscript from "@tiptap/extension-superscript";
 import Table from "@tiptap/extension-table";
 import TableCell from "@tiptap/extension-table-cell";
 import TableRow from "@tiptap/extension-table-row";
@@ -53,9 +59,15 @@ export const Editor = () => {
       Table,
       TableCell,
       TableHeader,
+      Underline,
+      Superscript,
+      Subscript,
+      Strike,
       TableRow,
       Image,
       ImageResize,
+      TextStyle,
+      FontFamily,
     ],
     content: "<p>Hello world</p>",
   });
