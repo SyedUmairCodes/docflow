@@ -2,10 +2,12 @@
 
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
+import Highlight from "@tiptap/extension-highlight";
 import TaskItem from "@tiptap/extension-task-item";
 import FontFamily from "@tiptap/extension-font-family";
 import TaskList from "@tiptap/extension-task-list";
 import Underline from "@tiptap/extension-underline";
+import { Color } from "@tiptap/extension-color";
 import Strike from "@tiptap/extension-strike";
 import TextStyle from "@tiptap/extension-text-style";
 import Subscript from "@tiptap/extension-subscript";
@@ -56,10 +58,12 @@ export const Editor = () => {
       StarterKit,
       TaskItem.configure({ nested: true }),
       TaskList,
+      Color,
       Table,
       TableCell,
       TableHeader,
       Underline,
+      Highlight.configure({ multicolor: true }),
       Superscript,
       Subscript,
       Strike,

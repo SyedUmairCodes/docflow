@@ -18,6 +18,7 @@ import {
   ListTodoIcon,
   RemoveFormattingIcon,
   ChevronDownIcon,
+  HighlighterIcon,
 } from "lucide-react";
 
 import {
@@ -27,6 +28,54 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { type Level } from "@tiptap/extension-heading";
+import { type ColorResult, CirclePicker } from "react-color";
+
+const HighlightColorButton = () => {
+  const { editor } = useEditorStore();
+
+  const value = editor?.getAttributes("highlight").color || "#FFFFFFFF";
+
+  const onChange = (color: ColorResult) => {
+    editor?.chain().focus().setHighlight({ color: color.hex }).run();
+  };
+
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <button className="h-7 min-w-7 shrink-0 flex flex-col items-center justify-center rounded-sm hover:bg-neutral-200/80 px-1.5 overflow-hidden text-sm">
+          <HighlighterIcon className="size-4" />
+        </button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="p-0">
+        <CirclePicker color={value} onChange={onChange} />
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+};
+
+const TextColorButton = () => {
+  const { editor } = useEditorStore();
+
+  const value = editor?.getAttributes("textStyle").color || "#000000";
+
+  const onChange = (color: ColorResult) => {
+    editor?.chain().focus().setColor(color.hex).run();
+  };
+
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <button className="h-7 min-w-7 shrink-0 flex flex-col items-center justify-center rounded-sm hover:bg-neutral-200/80 px-1.5 overflow-hidden text-sm">
+          <span className="text-xs">A</span>
+          <div className="h-0.5 w-full" style={{ backgroundColor: value }} />
+        </button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="p-1.5">
+        <CirclePicker color={value} onChange={onChange} />
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+};
 
 const HeadingLevelButton = () => {
   const { editor } = useEditorStore();
@@ -87,12 +136,13 @@ const HeadingLevelButton = () => {
 
 const FontFamilyButton = () => {
   const { editor } = useEditorStore();
+
   const fonts = [
     { label: "Arial", value: "Arial" },
     { label: "Times New Roman", value: "Times New Roman" },
+    { label: "Courier New", value: "Courier New" },
     { label: "Georgia", value: "Georgia" },
     { label: "Verdana", value: "Verdana" },
-    { label: "Courier New", value: "Courier New" },
     { label: "Inter", value: "Inter" },
   ];
 
@@ -101,9 +151,9 @@ const FontFamilyButton = () => {
       <DropdownMenuTrigger asChild>
         <button className="h-7 w-[120px] shrink-0 flex items-center justify-between rounded-sm hover:bg-neutral-200/80 px-1.5 overflow-hidden text-sm">
           <span className="truncate">
-            {editor?.getAttributes("textStyles").fontFamily || "Arial"}
+            {editor?.getAttributes("textStyle").fontFamily || "Arial"}
           </span>
-          <ChevronDownIcon className="ml-2 shrink-0 size-4" />
+          <ChevronDownIcon className="ml-2 size-4 shrink-0" />
         </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="p-1 flex flex-col gap-y-1">
@@ -112,7 +162,7 @@ const FontFamilyButton = () => {
             onClick={() => editor?.chain().focus().setFontFamily(value).run()}
             key={value}
             className={cn(
-              "flex center-items gap-x-2 px-2 py-1 rounded-sm hover:bg-neutral-200/80",
+              "flex items-center gap-x-2 px-2 py-1 rounded-sm hover:bg-neutral-200/80",
               editor?.getAttributes("textStyle").fontFamily === value &&
                 "bg-neutral-200/80"
             )}
@@ -258,6 +308,8 @@ export const Toolbar = () => {
       {sections[1].map((item) => (
         <ToolbarButton key={item.label} {...item} />
       ))}
+      <TextColorButton/>
+      <HighlightColorButton/>
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
       {sections[2].map((item) => (
         <ToolbarButton key={item.label} {...item} />
