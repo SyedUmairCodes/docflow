@@ -3,6 +3,7 @@
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import Highlight from "@tiptap/extension-highlight";
+import Link from "@tiptap/extension-link";
 import TaskItem from "@tiptap/extension-task-item";
 import FontFamily from "@tiptap/extension-font-family";
 import TaskList from "@tiptap/extension-task-list";
@@ -65,6 +66,7 @@ export const Editor = () => {
       Underline,
       Highlight.configure({ multicolor: true }),
       Superscript,
+      Link.configure({openOnClick:false,autolink:true, defaultProtocol:"https"}),
       Subscript,
       Strike,
       TableRow,
