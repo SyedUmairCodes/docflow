@@ -2,6 +2,7 @@
 
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
+import TextAlign from "@tiptap/extension-text-align";
 import Highlight from "@tiptap/extension-highlight";
 import Link from "@tiptap/extension-link";
 import TaskItem from "@tiptap/extension-task-item";
@@ -60,13 +61,18 @@ export const Editor = () => {
       TaskItem.configure({ nested: true }),
       TaskList,
       Color,
+      TextAlign.configure({types:["heading", "paragraph"]}),
       Table,
       TableCell,
       TableHeader,
       Underline,
       Highlight.configure({ multicolor: true }),
       Superscript,
-      Link.configure({openOnClick:false,autolink:true, defaultProtocol:"https"}),
+      Link.configure({
+        openOnClick: false,
+        autolink: true,
+        defaultProtocol: "https",
+      }),
       Subscript,
       Strike,
       TableRow,
