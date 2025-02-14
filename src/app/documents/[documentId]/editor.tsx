@@ -15,6 +15,7 @@ import TextStyle from "@tiptap/extension-text-style";
 import Subscript from "@tiptap/extension-subscript";
 import Superscript from "@tiptap/extension-superscript";
 import Table from "@tiptap/extension-table";
+import { FontSizeExtension } from "@/extensions/font-size";
 import TableCell from "@tiptap/extension-table-cell";
 import TableRow from "@tiptap/extension-table-row";
 import TableHeader from "@tiptap/extension-table-header";
@@ -58,10 +59,11 @@ export const Editor = () => {
     },
     extensions: [
       StarterKit,
+      FontSizeExtension,
       TaskItem.configure({ nested: true }),
       TaskList,
       Color,
-      TextAlign.configure({types:["heading", "paragraph"]}),
+      TextAlign.configure({ types: ["heading", "paragraph"] }),
       Table,
       TableCell,
       TableHeader,
