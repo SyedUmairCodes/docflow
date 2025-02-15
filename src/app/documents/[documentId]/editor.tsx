@@ -5,6 +5,7 @@ import StarterKit from "@tiptap/starter-kit";
 import TextAlign from "@tiptap/extension-text-align";
 import Highlight from "@tiptap/extension-highlight";
 import Link from "@tiptap/extension-link";
+import { LineHeightExtension } from "@/extensions/line-height";
 import TaskItem from "@tiptap/extension-task-item";
 import FontFamily from "@tiptap/extension-font-family";
 import TaskList from "@tiptap/extension-task-list";
@@ -60,6 +61,7 @@ export const Editor = () => {
     extensions: [
       StarterKit,
       FontSizeExtension,
+      LineHeightExtension,
       TaskItem.configure({ nested: true }),
       TaskList,
       Color,
