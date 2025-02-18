@@ -32,7 +32,6 @@ import {
   MenubarSubTrigger,
   MenubarTrigger,
 } from "@/components/ui/menubar";
-import Logo from "../../../../public/logo.svg";
 import DocumentInput from "./document-input";
 import { useEditorStore } from "@/store/use-editor-store";
 
